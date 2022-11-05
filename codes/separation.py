@@ -62,11 +62,16 @@ def convert(download_text):
 download_file = download(URL)
 text = convert(download_file)
 
-print(text)
+#print(text)
 
 # 分かち書き
 import MeCab
 mecab = MeCab.Tagger ('-Owakati')
 #text = mecab.parse ('今日は晴れです')
 #print(text)
-print(mecab.parse(text))
+#print(mecab.parse(text))
+
+
+#dir_processed=os.path.join('../texts/',os.path.basename(dir))
+with open('../texts/prcssd.txt',mode='w') as f:
+    f.writelines(mecab.parse(text))
